@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: news-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: news-frontend
+  template:
+    metadata:
+      labels:
+        app: news-frontend
+    spec:
+      containers:
+        - name: news-frontend
+          image: your-dockerhub-username/news-frontend
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: NodePort
+  selector:
+    app: news-frontend
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30080
