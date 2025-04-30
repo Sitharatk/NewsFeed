@@ -13,13 +13,13 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server, {
+const io = require('socket.io')(server, {
   cors: {
-    origin:process.env.CLIENT_URL,
-    methods: ['GET', 'POST'],
-    credentials: true
+    origin: "https://news-feed-omega-hazel.vercel.app", 
+    methods: ["GET", "POST"]
   }
 });
+
 
 // Middleware
 app.use(cors());
