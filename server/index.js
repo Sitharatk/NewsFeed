@@ -15,7 +15,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-   origin: 'https://news-feed-omega-hazel.vercel.app',
+    origin:process.env.CLIENT_URL,
     methods: ['GET', 'POST'],
     credentials: true
   }
