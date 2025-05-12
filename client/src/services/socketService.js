@@ -4,7 +4,7 @@ import store from '../store';
 import { addRealTimeNews } from '../actions/newsAction';
 import { showNotification } from '../actions/uiActions';
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5173';
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL ;
 
 class SocketService {
   constructor() {

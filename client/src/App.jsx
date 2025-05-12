@@ -24,23 +24,22 @@ function App() {
   
   return (
     <Provider store={store}>
-      <Router>
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col">
-          <Header />
-          <div className="flex flex-col md:flex-row flex-1">
-            <Sidebar />
-            <main className="flex-1 p-4">
-              <Routes>
-                <Route path="/" element={<NewsFeed />} />
-                <Route path="/trending" element={<TrendingNews />} />
-                <Route path="/news/:id" element={<NewsDetail />} />
-              </Routes>
-            </main>
-          </div>
-          <NotificationContainer />
+    <Router>
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col">
+        <Header />
+        <Sidebar /> {/* Now horizontal under the header */}
+        <div className="flex-1 p-4">
+          <Routes>
+            <Route path="/" element={<NewsFeed />} />
+            <Route path="/trending" element={<TrendingNews />} />
+            <Route path="/news/:id" element={<NewsDetail />} />
+            <Route path="/category/:category" element={<NewsFeed />} />
+          </Routes>
         </div>
-      </Router>
-    </Provider>
+        <NotificationContainer />
+      </div>
+    </Router>
+  </Provider>
   );
 }
 
